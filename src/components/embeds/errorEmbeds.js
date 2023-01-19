@@ -3,8 +3,14 @@ const { buildTitle } = require("../../lang/utils");
 const { errorRed } = require("../../util/colors");
 const { bar } = require("../../util/emojis");
 
-const { UnknownMessage } = RESTJSONErrorCodes;
+const {
+    InteractionHasAlreadyBeenAcknowledged,
+    UnknownInteraction,
+    UnknownMessage
+} = RESTJSONErrorCodes;
 const ERROR_CODE_MESSAGES = {
+    [InteractionHasAlreadyBeenAcknowledged]: `[${InteractionHasAlreadyBeenAcknowledged}] Multiple Instances of bot running (interaction already acknowledged)`,
+    [UnknownInteraction]: `[${UnknownInteraction}] Unknown Interaction`,
     [UnknownMessage]: `[${UnknownMessage}] Collector could not end (initial message deleted)`
 };
 

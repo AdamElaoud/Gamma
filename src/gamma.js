@@ -25,6 +25,7 @@ for (const file of commandFiles) {
 client.once(Events.ClientReady, (clientInstance) => {
     logBootUp(clientInstance);
     statusLoop(clientInstance);
+    console.warn(`logged in as ${clientInstance.user.tag}, startup logged, and status loop started`);
 });
 
 client.on(Events.InteractionCreate, async (interaction) => {

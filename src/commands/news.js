@@ -25,6 +25,7 @@ module.exports = {
 
         } catch (error) {
             logError(interaction, error);
+            console.error("ERROR:\n", error);
         }
     }
 };

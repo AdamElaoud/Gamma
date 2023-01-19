@@ -42,6 +42,7 @@ module.exports = {
 
         } catch (error) {
             logError(interaction, error);
+            console.error("ERROR:\n", error);
         }
 
         if (message) {
@@ -77,6 +78,7 @@ module.exports = {
 
                     } catch (error) {
                         logError(interaction, error);
+                        console.error("ERROR:\n", error);
                     }
 
                 } else {
@@ -88,6 +90,7 @@ module.exports = {
 
                     } catch (error) {
                         logError(interaction, error);
+                        console.error("ERROR:\n", error);
                     }
                 }
             });
@@ -108,6 +111,7 @@ module.exports = {
 
                 } catch (error) {
                     logError(interaction, error);
+                    console.error("ERROR:\n", error);
                 }
             });
         }
