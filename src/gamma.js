@@ -48,14 +48,14 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
 });
 
-client.login(process.env.GAMMATOKEN);
+client.login(process.env.GAMMADEVTOKEN);
 
 const statusLoop = (clientInstance) => {
-    setActivity(clientInstance);
-    setInterval(setActivity(clientInstance), STATUS_CYCLE_TIME);
+    setStatus(clientInstance)();
+    setInterval(setStatus(clientInstance), STATUS_CYCLE_TIME);
 };
 
-const setActivity = (clientInstance) => () => {
+const setStatus = (clientInstance) => () => {
     const userCount = clientInstance.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0);
 
     clientInstance.user.setActivity(`over ${userCount} users`, { type: ActivityType.Watching });
