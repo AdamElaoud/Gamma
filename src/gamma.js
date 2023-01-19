@@ -51,6 +51,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
 client.login(process.env.GAMMATOKEN);
 
 const statusLoop = (clientInstance) => {
+    setActivity(clientInstance);
     setInterval(setActivity(clientInstance), STATUS_CYCLE_TIME);
 };
 
