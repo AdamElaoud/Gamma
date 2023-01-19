@@ -48,7 +48,7 @@ client.on(Events.InteractionCreate, async (interaction) => {
     }
 });
 
-client.login(process.env.GAMMADEVTOKEN);
+client.login(process.env.GAMMATOKEN);
 
 const statusLoop = (clientInstance) => {
     setStatus(clientInstance)();
