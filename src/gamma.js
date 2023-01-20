@@ -56,7 +56,7 @@ const statusLoop = (clientInstance) => {
 };
 
 const setStatus = (clientInstance) => () => {
-    const userCount = clientInstance.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0);
+    const userCount = clientInstance.guilds.cache.reduce((total, guild) => total + guild.memberCount, 0).toLocaleString("en-US");
 
     clientInstance.user.setActivity(`over ${userCount} users`, { type: ActivityType.Watching });
 };
