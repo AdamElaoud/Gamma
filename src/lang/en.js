@@ -8,6 +8,9 @@ exports.footerText = "Made with 💖 by Sap#5703";
 exports.news = "GAMMA NEWS";
 exports.lastUpdated = "Last Updated";
 exports.version = "version";
+exports.announcements = "ANNOUNCEMENTS";
+exports.updates = "UPDATES";
+exports.specialThanks = "SPECIAL THANKS";
 
 // HELP COMMAND
 exports.commands = "COMMANDS";
@@ -29,6 +32,9 @@ exports.healthLabel = "Health";
 exports.miscLabel = "Misc";
 exports.naRoundingLabel = "NA Rounding";
 exports.euRoundingLabel = "EU Rounding";
+
+// ROUNDING
+exports.fakeStat = "fake stat (rounded for display)";
 
 // STAT PAGE TITLES
 exports.baseStats = "BASE TALENT STATS";

@@ -73,9 +73,9 @@ const enteredStatsDisplay = ({ agility, intellect, power, strength, will }) => `
                                                                             + `${willEmoji.emoji}**:** ${will} ${NO_BREAK_SPACE} ${NO_BREAK_SPACE}`
                                                                             + `${powerEmoji.emoji}**:** ${power}`;
 
-const fakeStatsDisplay = (rounding) => {
+const fakeStatsDisplay = (rounding, fakeStatText) => {
     return rounding === EU_ROUNDING_BUTTON_CUSTOM_ID ?
-        `\n${fake.emoji}**:** *fake stat (rounded for display)*`
+        `\n${fake.emoji}**:** *${fakeStatText}*`
         : NO_BREAK_SPACE;
 };
 
@@ -91,6 +91,7 @@ exports.statsBaseEmbed = (locale, stats, rounding) => {
         damageTitle,
         dealer,
         eye,
+        fakeStat,
         footerText,
         giver,
         painBringer,
@@ -112,7 +113,7 @@ exports.statsBaseEmbed = (locale, stats, rounding) => {
         author: { name: baseStats, icon_url: AUTHOR_IMAGE },
         fields: [
             { name: NO_BREAK_SPACE, value: enteredStatsDisplay(stats) },
-            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding) },
+            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding, fakeStat) },
             {
                 name: NO_BREAK_SPACE,
                 value: buildTitle(damageTitle, tanBar.emoji)
@@ -209,6 +210,7 @@ exports.statsRatingEmbed = (locale, stats, rounding) => {
         criticalTitle,
         cStriker,
         defender,
+        fakeStat,
         footerText,
         hitter,
         pipBoost,
@@ -226,7 +228,7 @@ exports.statsRatingEmbed = (locale, stats, rounding) => {
         author: { name: ratingStats, icon_url: AUTHOR_IMAGE },
         fields: [
             { name: NO_BREAK_SPACE, value: enteredStatsDisplay(stats) },
-            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding) },
+            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding, fakeStat) },
             {
                 name: NO_BREAK_SPACE,
                 value: buildTitle(criticalTitle, purpleBar.emoji)
@@ -303,6 +305,7 @@ exports.statsRatingEmbed = (locale, stats, rounding) => {
 exports.statsHealthEmbed = (locale, stats, rounding) => {
     const dictionary = getLanguageDictionary(locale);
     const {
+        fakeStat,
         footerText,
         healer,
         healthTitle,
@@ -323,7 +326,7 @@ exports.statsHealthEmbed = (locale, stats, rounding) => {
         author: { name: healthStats, icon_url: AUTHOR_IMAGE },
         fields: [
             { name: NO_BREAK_SPACE, value: enteredStatsDisplay(stats) },
-            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding) },
+            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding, fakeStat) },
             {
                 name: NO_BREAK_SPACE,
                 value: buildTitle(incomingTitle, redBar.emoji)
@@ -388,6 +391,7 @@ exports.statsMiscEmbed = (locale, stats, rounding) => {
         extraMana,
         fishLuck,
         fishLuckTitle,
+        fakeStat,
         footerText,
         manaBoost,
         manaBounty,
@@ -404,7 +408,7 @@ exports.statsMiscEmbed = (locale, stats, rounding) => {
         author: { name: miscStats, icon_url: AUTHOR_IMAGE },
         fields: [
             { name: NO_BREAK_SPACE, value: enteredStatsDisplay(stats) },
-            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding) },
+            { name: NO_BREAK_SPACE, value: fakeStatsDisplay(rounding, fakeStat) },
             {
                 name: NO_BREAK_SPACE,
                 value: buildTitle(stunResistTitle, orangeBar.emoji)
