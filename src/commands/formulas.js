@@ -46,12 +46,12 @@ module.exports = {
         }
 
         if (message) {
-            const collectorFilter = (buttonInteraction) => {
+            const collectorFilter = async (buttonInteraction) => {
                 const { customId } = buttonInteraction;
 
                 // only react to interactions when changing to a new page
                 if (customId === currentPageID) {
-                    buttonInteraction.deferUpdate();
+                    await buttonInteraction.deferUpdate();
                     return false;
                 }
 
@@ -69,7 +69,7 @@ module.exports = {
 
                 if (buttonInteractionUser.id === initialUser.id) {
                     currentPageID = customId;
-                    buttonInteraction.deferUpdate();
+                    await buttonInteraction.deferUpdate();
                     buttons = buildCategoryButtonRow(locale, currentPageID);
                     buttonRow = new ActionRowBuilder().addComponents(...buttons);
 
