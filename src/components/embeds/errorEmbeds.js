@@ -10,7 +10,7 @@ const {
 } = RESTJSONErrorCodes;
 const ERROR_CODE_MESSAGES = {
     [InteractionHasAlreadyBeenAcknowledged]: `[${InteractionHasAlreadyBeenAcknowledged}] Multiple Instances of bot running (interaction already acknowledged)`,
-    [UnknownInteraction]: `[${UnknownInteraction}] Unknown Interaction`,
+    [UnknownInteraction]: `[${UnknownInteraction}] Multiple Instances of bot running (unknown interaction)`,
     [UnknownMessage]: `[${UnknownMessage}] Collector could not end (initial message deleted)`
 };
 
@@ -31,6 +31,7 @@ exports.errorEmbed = (interaction, error) => {
                     + `\n**Server:** ${server}`
                     + `\n**Channel:** ${channel}`
                     + `\n**Date:** <t:${timeNow}:R>`
-                    + `\n\n**Error:**\n${errorMessage}`
+                    + `\n\n**Error:**\n[${errorMessage}](${error.url})`
+                    + `\n\n**Stack Trace:**\n${error.stack}`
     };
 };

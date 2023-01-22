@@ -8,10 +8,16 @@ exports.ERROR_LOG_CHANNEL_ID = "756179150796226561";
 exports.DEV_COMMAND_CHANNEL_ID = "745373245213114438";
 
 // CONTRIBUTORS
-exports.DAETH_ID = "316382242123415572";
 exports.LNTRN_ID = "750304052184612865";
+exports.LNTRN_TAG = "lntrn";
+exports.DAETH_ID = "316382242123415572";
+exports.DAETH_TAG = "DAɆTH";
 exports.ASTER_ID = "291996901082136576";
+exports.ASTER_TAG = "Aster";
 exports.SHIRO_ID = "203674262333030400";
+exports.SHIRO_TAG = "Shiro.";
+exports.ERIN_ID = "399622184685010945";
+exports.ERIN_TAG = "Erin EagleCaller";
 
 // AUTHOR
 exports.AUTHOR_IMAGE = "https://i.imgur.com/pAsRRDH.png";
@@ -26,7 +32,7 @@ exports.WEBSITE_LINK = "https://gammastats.help";
 
 // LANGUAGE
 exports.DEFAULT_LANGUAGE = "en";
-exports.SUPPORTED_LANGUAGES = ["en", "es-ES", "fr"];
+exports.SUPPORTED_LANGUAGES = ["en", "es-ES", "fr", "el"];
 
 // BUTTONS
 exports.NO_ROUNDING_ID = "NO_ROUND";

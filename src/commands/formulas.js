@@ -65,7 +65,7 @@ module.exports = {
             });
 
             collector.on("collect", async (buttonInteraction) => {
-                const { customId, user: buttonInteractionUser } = buttonInteraction;
+                const { customId, locale: buttonLocale, user: buttonInteractionUser } = buttonInteraction;
 
                 if (buttonInteractionUser.id === initialUser.id) {
                     currentPageID = customId;
@@ -82,7 +82,7 @@ module.exports = {
                     }
 
                 } else {
-                    const dictionary = getLanguageDictionary(locale);
+                    const dictionary = getLanguageDictionary(buttonLocale);
                     const { cannotInteract } = dictionary;
 
                     try {

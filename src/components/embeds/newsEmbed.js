@@ -1,9 +1,9 @@
 const { getLanguageDictionary, buildTitle } = require("../../lang/utils");
 const { lightBlue } = require("../../util/colors");
-const { FOOTER_IMAGE, WEBSITE_LINK, NO_BREAK_SPACE, LAST_UPDATED_NEWS_TIME, LNTRN_ID, DAETH_ID, SHIRO_ID, ASTER_ID } = require("../../util/constants");
+const { FOOTER_IMAGE, WEBSITE_LINK, NO_BREAK_SPACE, LAST_UPDATED_NEWS_TIME, LNTRN_ID, DAETH_ID, SHIRO_ID, ASTER_ID, ERIN_ID, LNTRN_TAG, DAETH_TAG, SHIRO_TAG, ASTER_TAG, ERIN_TAG } = require("../../util/constants");
 const { bar, kiwi, gamma, round } = require("../../util/emojis");
 
-exports.newsEmbed = (locale) => {
+exports.newsEmbed = (locale, client) => {
     const dictionary = getLanguageDictionary(locale);
     const {
         announcements,
@@ -17,6 +17,13 @@ exports.newsEmbed = (locale) => {
 
     const bullet = ":white_small_square:";
     const tab = `${NO_BREAK_SPACE} ${NO_BREAK_SPACE} ${NO_BREAK_SPACE} ${NO_BREAK_SPACE}`;
+
+    const userCache = client.users.cache;
+    const lntrn = userCache.get(LNTRN_ID)?.tag;
+    const daeth = userCache.get(DAETH_ID)?.tag;
+    const shiro = userCache.get(SHIRO_ID)?.tag;
+    const aster = userCache.get(ASTER_ID)?.tag;
+    const erin = userCache.get(ERIN_ID)?.tag;
 
     return {
         color: lightBlue,
@@ -47,7 +54,7 @@ exports.newsEmbed = (locale) => {
                     + `\n${bullet} ${gamma.emoji} **Gamma** now displays in your Discord`
                     + `\n${tab} display language`
                     + `\n${bullet} ${gamma.emoji} **Gamma** now has language support`
-                    + `\n${tab} for :flag_us: **en**, :flag_fr: **fr**, and :flag_es: **es**`
+                    + `\n${tab} for :flag_us: **en**, :flag_fr: **fr**, :flag_es: **es**, and :flag_gr: **gr**`
             },
             {
                 name: NO_BREAK_SPACE,
@@ -56,8 +63,9 @@ exports.newsEmbed = (locale) => {
             {
                 name: NO_BREAK_SPACE,
                 value: "Special thanks to these contributors:"
-                    + `\n${bullet} <@${LNTRN_ID}> ${tab} ${bullet} <@${DAETH_ID}>`
-                    + `\n${bullet} <@${SHIRO_ID}> ${tab} ${bullet} <@${ASTER_ID}>`
+                    + `\n${bullet} ${lntrn || LNTRN_TAG} ${tab} ${bullet} ${daeth || DAETH_TAG}`
+                    + `\n${bullet} ${shiro || SHIRO_TAG} ${tab} ${bullet} ${aster || ASTER_TAG}`
+                    + `\n${bullet} ${erin || ERIN_TAG}`
             },
             { name: NO_BREAK_SPACE, value: NO_BREAK_SPACE },
             { name: NO_BREAK_SPACE, value: NO_BREAK_SPACE }

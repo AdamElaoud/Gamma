@@ -15,7 +15,7 @@ module.exports = {
         const buttons = [inviteButton(locale), helpButton(locale), websiteButton(locale)];
         const buttonRow = new ActionRowBuilder().addComponents(...buttons);
 
-        const embed = newsEmbed(locale);
+        const embed = newsEmbed(locale, interaction.client);
 
         try {
             await interaction.reply({
