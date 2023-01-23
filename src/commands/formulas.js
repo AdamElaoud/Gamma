@@ -74,7 +74,10 @@ module.exports = {
                     buttonRow = new ActionRowBuilder().addComponents(...buttons);
 
                     try {
-                        await interaction.editReply({ embeds: [embeds[customId]], components: [buttonRow] });
+                        await interaction.editReply({
+                            embeds: [embeds[customId]],
+                            components: [buttonRow]
+                        });
 
                     } catch (error) {
                         logError(interaction, error);
@@ -95,16 +98,12 @@ module.exports = {
                 }
             });
 
-            collector.on("end", async (collected) => {
+            collector.on("end", async () => {
                 const disabledButtons = buttons.map(button => button.setDisabled(true));
                 const disabledButtonRow = new ActionRowBuilder().addComponents(...disabledButtons);
 
-                let lastInteraction = interaction;
-                if (collected.size > 0)
-                    lastInteraction = collected.first();
-
                 try {
-                    await lastInteraction.editReply({
+                    await interaction.editReply({
                         embeds: [embeds[currentPageID]],
                         components: [disabledButtonRow]
                     });

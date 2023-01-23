@@ -164,19 +164,15 @@ module.exports = {
                 }
             });
 
-            collector.on("end", async (collected) => {
+            collector.on("end", async () => {
                 const disabledButtons = pageButtons.map(button => button.setDisabled(true));
                 const disabledButtonRow = new ActionRowBuilder().addComponents(...disabledButtons);
 
                 const disabledRoundingButtons = roundingButtons.map(button => button.setDisabled(true));
                 const disabledRoundingButtonRow = new ActionRowBuilder().addComponents(...disabledRoundingButtons);
 
-                let lastInteraction = interaction;
-                if (collected.size > 0)
-                    lastInteraction = collected.first();
-
                 try {
-                    await lastInteraction.editReply({
+                    await interaction.editReply({
                         embeds: [embeds[currentPageID]],
                         components: [disabledButtonRow, disabledRoundingButtonRow]
                     });

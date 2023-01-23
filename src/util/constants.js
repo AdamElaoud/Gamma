@@ -39,7 +39,7 @@ exports.NO_ROUNDING_ID = "NO_ROUND";
 
 // TIME
 exports.MAX_INTERACTION_TIME = "900000"; // 15 minutes in ms
-exports.INTERACTION_TIME = exports.MAX_INTERACTION_TIME;
+exports.INTERACTION_TIME = "840000"; // 14 minutes in ms (to ensure that collector ends to disable buttons before interaction expires)
 exports.STATUS_CYCLE_TIME = "3600000"; // 1 hour in ms
 exports.LAST_UPDATED_NEWS_TIME = "1674261700";
 
